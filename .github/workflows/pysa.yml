@@ -1,0 +1,17 @@
+name: pysa
+
+on: [push, pull_request]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: abishekvashok/pyre-check@actions
+      - run: cat sarif.json
+     
