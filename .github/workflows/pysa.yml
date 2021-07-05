@@ -12,9 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - run: pip3 install Django
-      - run: echo "PYTHONPATH=$pythonLocation:$LD_LIBRARY_PATH" >> $GITHUB_ENV
-      - uses: abishekvashok/pyre-check@actions 
+      - uses: abishekvashok/pyre-check@actions3 
       - run: cat sarif.json
       - name: Expose SARIF Results
         uses: actions/upload-artifact@v2
