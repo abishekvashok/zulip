@@ -7,11 +7,22 @@ defaults:
     shell: bash
 
 jobs:
-  tests:
+  pysa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - uses: abishekvashok/pyre-check@actions
+      - run: pip3 install Django
+      - run: echo "PYTHONPATH=$pythonLocation:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+      - uses: abishekvashok/pyre-check@actions 
       - run: cat sarif.json
+      - name: Expose SARIF Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: SARIF Results
+          path: sarif.json
+      - name: Upload SARIF Results
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: sarif.json
      

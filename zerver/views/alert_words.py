@@ -9,7 +9,6 @@ from zerver.lib.response import json_success
 from zerver.lib.validator import check_capped_string, check_list, check_string
 from zerver.models import UserProfile
 
-
 def list_alert_words(request: HttpRequest, user_profile: UserProfile) -> HttpResponse:
     return json_success({"alert_words": user_alert_words(user_profile)})
 
