@@ -1,7 +1,11 @@
 {
   "source_directories": ["."],
-  "taint_models_path": "stubs/taint",
-  "exclude": [
-      "/srv/zulip/zulip-py3-venv/.*"
+  "taint_models_path": [
+      "stubs/taint",
+      "/opt/hostedtoolcache/Python/3.9.5/x64/lib/pyre_check/taint/"
+  ],
+  "search_path": [
+      "stubs/",
+      "/opt/hostedtoolcache/Python/3.9.5/x64/lib/pyre_check/stubs/"
   ]
 }
