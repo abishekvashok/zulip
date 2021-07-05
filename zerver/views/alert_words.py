@@ -9,18 +9,6 @@ from zerver.lib.response import json_success
 from zerver.lib.validator import check_capped_string, check_list, check_string
 from zerver.models import UserProfile
 
-import subprocess
-
-def operate_on_twos(request: HttpRequest) -> HttpResponse:
-    operator = request.GET["operator"]
-    result = eval(f"2 {operator} 2")
-    return result
-
-def operate_on_threes(request: HttpRequest) -> HttpResponse:
-    operator = request.GET["operator"]
-    result = eval(f"3 {operator} 3")
-    return result
-
 def list_alert_words(request: HttpRequest, user_profile: UserProfile) -> HttpResponse:
     return json_success({"alert_words": user_alert_words(user_profile)})
 
