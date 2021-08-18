@@ -12,15 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - uses: abishekvashok/pyre-check@actions3 
-      - run: cat sarif.json
+      - uses: abishekvashok/pyre-check@actions
+      - run: cat .pysa/sarif.json
       - name: Expose SARIF Results
         uses: actions/upload-artifact@v2
         with:
           name: SARIF Results
-          path: sarif.json
+          path: .pysa/sarif.json
       - name: Upload SARIF Results
         uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: sarif.json
+          sarif_file: .pysa/sarif.json
      
