@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - uses: abishekvashok/pyre-check@actions
+      - uses: abishekvashok/pyre-check@act
       - run: cat sarif.json
       - name: Expose SARIF Results
         uses: actions/upload-artifact@v2
