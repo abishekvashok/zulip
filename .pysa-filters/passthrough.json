@@ -1,0 +1,5 @@
+{
+  "name": "passthrough",
+  "description": "passthrough all issues",
+  "callables": ["%"]
+}
